@@ -3,8 +3,8 @@
  * role, mute, clear chat, dan hide chat.
  */
 import { pgTable, uuid, varchar, timestamp, unique, index } from 'drizzle-orm/pg-core';
-import { users } from './users';
-import { conversations } from './conversations';
+import { users } from './users.js';
+import { conversations } from './conversations.js';
 
 export const conversationMembers = pgTable(
   'conversation_members',

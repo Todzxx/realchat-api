@@ -3,12 +3,12 @@
  * user dan fan-out push notification untuk pesan masuk dengan menyaring penerima
  * yang memblokir pengirim, sedang mode mute, atau mematikan notifikasi pesan.
  */
-import * as repository from './devices.repository';
-import { sendPush, messagePreview } from './onesignal.service';
-import { getBlockRelationUserIds } from '../users/blockedUsers.repository';
-import { findNewMessageOptOuts } from '../users/users.repository';
-import { findTokensByUserIds } from './devices.repository';
-import { findContact } from '../contacts/contacts.repository';
+import * as repository from './devices.repository.js';
+import { sendPush, messagePreview } from './onesignal.service.js';
+import { getBlockRelationUserIds } from '../users/blockedUsers.repository.js';
+import { findNewMessageOptOuts } from '../users/users.repository.js';
+import { findTokensByUserIds } from './devices.repository.js';
+import { findContact } from '../contacts/contacts.repository.js';
 
 // Batas jumlah token per user; token terlama akan dipangkas saat registrasi baru.
 const MAX_DEVICE_TOKENS_PER_USER = 10;

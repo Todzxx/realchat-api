@@ -3,12 +3,12 @@
  * Socket.IO, membaca daftar/jumlah belum dibaca, serta menandai baca dan hapus
  * dengan validasi kepemilikan agar user hanya mengelola notifikasinya sendiri.
  */
-import * as repository from './notifications.repository';
-import type { CreateNotificationData } from './notifications.repository';
-import { NotFoundError, ForbiddenError } from '../../utils/errors';
-import { getIO } from '../../socket/index';
-import { extractMentions } from '../../utils/mentions';
-import { findUserById, findUserIdsByUsernames } from '../auth/auth.repository';
+import * as repository from './notifications.repository.js';
+import type { CreateNotificationData } from './notifications.repository.js';
+import { NotFoundError, ForbiddenError } from '../../utils/errors.js';
+import { getIO } from '../../socket/index.js';
+import { extractMentions } from '../../utils/mentions.js';
+import { findUserById, findUserIdsByUsernames } from '../auth/auth.repository.js';
 
 /**
  * Membuat banyak notifikasi sekaligus lalu menyiarkan event 'notification:new'

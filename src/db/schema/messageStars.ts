@@ -3,8 +3,8 @@
  * Unik per (messageId, userId) - bintang tidak terlihat oleh pengguna lain.
  */
 import { pgTable, uuid, timestamp, unique } from 'drizzle-orm/pg-core';
-import { users } from './users';
-import { messages } from './messages';
+import { users } from './users.js';
+import { messages } from './messages.js';
 
 export const messageStars = pgTable(
   'message_stars',

@@ -6,16 +6,21 @@
  */
 
 import multer from 'multer';
+import fs from 'fs';
 import path from 'path';
-import { env } from '../config/env';
+import { env } from '../config/env.js';
 import {
   ALLOWED_IMAGE_TYPES,
   ALLOWED_MESSAGE_TYPES,
   MAX_AVATAR_SIZE,
   MAX_BANNER_SIZE,
   MAX_GROUP_PHOTO_SIZE,
-} from '../config/constants';
-import { BadRequestError } from '../utils/errors';
+} from '../config/constants.js';
+import { BadRequestError } from '../utils/errors.js';
+
+// Pastikan direktori upload ada saat boot. Multer tidak membuat folder tujuan
+// secara otomatis; tanpa ini tulis file pertama akan gagal (ENOENT -> 500).
+fs.mkdirSync(env.uploadDir, { recursive: true });
 
 // Simpan ke env.uploadDir dengan nama unik (timestamp + angka acak);
 // ekstensi asli dipertahankan sementara, akan dikoreksi oleh imageValidation.

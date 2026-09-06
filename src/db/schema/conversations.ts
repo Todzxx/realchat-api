@@ -3,7 +3,7 @@
  * Nama/avatar/deskripsi hanya terisi untuk tipe GROUP.
  */
 import { pgTable, uuid, varchar, text, timestamp } from 'drizzle-orm/pg-core';
-import { users } from './users';
+import { users } from './users.js';
 
 export const conversations = pgTable('conversations', {
   id: uuid('id').primaryKey().defaultRandom(),

@@ -3,8 +3,8 @@
  * Satu baris unik per (messageId, userId) - dasar read receipt.
  */
 import { pgTable, uuid, varchar, timestamp, unique } from 'drizzle-orm/pg-core';
-import { users } from './users';
-import { messages } from './messages';
+import { users } from './users.js';
+import { messages } from './messages.js';
 
 export const messageStatus = pgTable(
   'message_status',

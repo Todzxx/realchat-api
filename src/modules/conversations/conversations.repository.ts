@@ -3,17 +3,17 @@
  * percakapan, anggota, pesan, status, bintang, dan reaksi. Memuat
  * operasi transaksional ber-advisory-lock agar aman dari race condition.
  */
-import db from '../../db/index';
-import { BadRequestError, NotFoundError } from '../../utils/errors';
-import { conversations } from '../../db/schema/conversations';
-import { conversationMembers } from '../../db/schema/conversationMembers';
-import { messages } from '../../db/schema/messages';
-import { messageStatus } from '../../db/schema/messageStatus';
-import { messageReactions } from '../../db/schema/messageReactions';
-import { messageStars } from '../../db/schema/messageStars';
-import { users } from '../../db/schema/users';
-import { contacts } from '../../db/schema/contacts';
-import { notifications } from '../../db/schema/notifications';
+import db from '../../db/index.js';
+import { BadRequestError, NotFoundError } from '../../utils/errors.js';
+import { conversations } from '../../db/schema/conversations.js';
+import { conversationMembers } from '../../db/schema/conversationMembers.js';
+import { messages } from '../../db/schema/messages.js';
+import { messageStatus } from '../../db/schema/messageStatus.js';
+import { messageReactions } from '../../db/schema/messageReactions.js';
+import { messageStars } from '../../db/schema/messageStars.js';
+import { users } from '../../db/schema/users.js';
+import { contacts } from '../../db/schema/contacts.js';
+import { notifications } from '../../db/schema/notifications.js';
 import {
   eq,
   and,

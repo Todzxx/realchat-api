@@ -5,7 +5,7 @@
  */
 
 import nodemailer from 'nodemailer';
-import { env } from '../config/env';
+import { env } from '../config/env.js';
 
 // Kredensial SMTP opsional: bila kosong, transporter tetap dibuat
 // (mode tanpa auth) namun pengiriman akan ditolak di level fungsi.

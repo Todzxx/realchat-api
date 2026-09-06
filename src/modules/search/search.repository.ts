@@ -3,11 +3,11 @@
  * Query memakai ILIKE dengan escaping karakter khusus LIKE, filter relasi blokir
  * via notExists, alias tabel untuk self-join, dan paginasi cursor limit+1.
  */
-import db from '../../db/index';
-import { users } from '../../db/schema/users';
-import { conversations } from '../../db/schema/conversations';
-import { conversationMembers } from '../../db/schema/conversationMembers';
-import { messages } from '../../db/schema/messages';
+import db from '../../db/index.js';
+import { users } from '../../db/schema/users.js';
+import { conversations } from '../../db/schema/conversations.js';
+import { conversationMembers } from '../../db/schema/conversationMembers.js';
+import { messages } from '../../db/schema/messages.js';
 import {
   eq,
   and,
@@ -24,7 +24,7 @@ import {
   aliasedTable,
   type SQL,
 } from 'drizzle-orm';
-import { blockedUsers } from '../../db/schema/blockedUsers';
+import { blockedUsers } from '../../db/schema/blockedUsers.js';
 
 // Alias self-join tabel users untuk mengambil data pengirim pesan.
 const senderUser = aliasedTable(users, 'sender_user');

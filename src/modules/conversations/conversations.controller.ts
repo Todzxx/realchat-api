@@ -4,9 +4,9 @@
  * JSON dengan format { success, message?, data }.
  */
 import { Response, NextFunction } from 'express';
-import { AuthRequest } from '../../middlewares/verifyJWT';
-import { BadRequestError } from '../../utils/errors';
-import * as conversationService from './conversations.service';
+import { AuthRequest } from '../../middlewares/verifyJWT.js';
+import { BadRequestError } from '../../utils/errors.js';
+import * as conversationService from './conversations.service.js';
 import {
   conversationListQuerySchema,
   conversationIdParamsSchema,
@@ -14,7 +14,7 @@ import {
   paginationSchema,
   uploadMessageSchema,
   addReactionBodySchema,
-} from './conversations.validator';
+} from './conversations.validator.js';
 
 /** Membuat percakapan privat baru dengan satu partisipan. */
 export async function createConversation(req: AuthRequest, res: Response, next: NextFunction) {

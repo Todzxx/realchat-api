@@ -4,7 +4,7 @@
  * search, dan push sama-sama difilter untuk kedua arah.
  */
 import { pgTable, uuid, timestamp, unique } from 'drizzle-orm/pg-core';
-import { users } from './users';
+import { users } from './users.js';
 
 export const blockedUsers = pgTable(
   'blocked_users',

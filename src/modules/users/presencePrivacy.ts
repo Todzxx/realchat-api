@@ -3,8 +3,8 @@
  * privasi pemilik data. Helper ini hanya mengevaluasi kebijakan privasi;
  * relasi blokir ditangani pemanggil karena blokir selalu menang.
  */
-import db from '../../db/index';
-import { contacts } from '../../db/schema/contacts';
+import db from '../../db/index.js';
+import { contacts } from '../../db/schema/contacts.js';
 import { eq, and, inArray } from 'drizzle-orm';
 
 /** Target pemeriksaan visibilitas: id pemilik setting beserta nilainya. */

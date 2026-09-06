@@ -4,9 +4,9 @@
  * middleware penanganan error lewat next().
  */
 import { Response, NextFunction } from 'express';
-import { AuthRequest } from '../../middlewares/verifyJWT';
-import * as notificationService from './notifications.service';
-import { paginationSchema, notificationIdParamSchema } from './notifications.validator';
+import { AuthRequest } from '../../middlewares/verifyJWT.js';
+import * as notificationService from './notifications.service.js';
+import { paginationSchema, notificationIdParamSchema } from './notifications.validator.js';
 
 /** GET /notifications — daftar notifikasi user beserta jumlah belum dibaca. */
 export async function getNotifications(req: AuthRequest, res: Response, next: NextFunction) {

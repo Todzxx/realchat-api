@@ -5,17 +5,17 @@
  */
 
 import { Router } from 'express';
-import authRoutes from '../modules/auth/auth.route';
-import userRoutes from '../modules/users/users.route';
+import authRoutes from '../modules/auth/auth.route.js';
+import userRoutes from '../modules/users/users.route.js';
 import conversationRoutes, {
   starredRouter,
   reactedRouter,
-} from '../modules/conversations/conversations.route';
-import groupRoutes from '../modules/groups/groups.route';
-import contactRoutes from '../modules/contacts/contacts.route';
-import notificationRoutes from '../modules/notifications/notifications.route';
-import deviceRoutes from '../modules/devices/devices.route';
-import searchRoutes, { dmSearchRouter } from '../modules/search/search.route';
+} from '../modules/conversations/conversations.route.js';
+import groupRoutes from '../modules/groups/groups.route.js';
+import contactRoutes from '../modules/contacts/contacts.route.js';
+import notificationRoutes from '../modules/notifications/notifications.route.js';
+import deviceRoutes from '../modules/devices/devices.route.js';
+import searchRoutes, { dmSearchRouter } from '../modules/search/search.route.js';
 
 /** Router utama yang menggabungkan seluruh rute modul RealChat. */
 const router = Router();

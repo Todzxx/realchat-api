@@ -5,18 +5,18 @@
  * Juga menyediakan catch-up delivery status DELIVERED saat user reconnect.
  */
 import { Server, Socket } from 'socket.io';
-import db from '../../db/index';
-import { messages } from '../../db/schema/messages';
-import { messageStatus } from '../../db/schema/messageStatus';
-import { conversationMembers } from '../../db/schema/conversationMembers';
-import { conversations } from '../../db/schema/conversations';
+import db from '../../db/index.js';
+import { messages } from '../../db/schema/messages.js';
+import { messageStatus } from '../../db/schema/messageStatus.js';
+import { conversationMembers } from '../../db/schema/conversationMembers.js';
+import { conversations } from '../../db/schema/conversations.js';
 import { eq, and, ne, sql, inArray } from 'drizzle-orm';
 import {
   sendMessageSchema,
   messageSeenSchema,
   pinMessageSchema,
   reactionSchema,
-} from '../../modules/conversations/conversations.validator';
+} from '../../modules/conversations/conversations.validator.js';
 import {
   updateMessagePinned,
   addStar,
@@ -24,26 +24,26 @@ import {
   countMessageFileReferences,
   findMessageReadCompletion,
   clearReactionsByMessage,
-} from '../../modules/conversations/conversations.repository';
-import { findUserById } from '../../modules/auth/auth.repository';
+} from '../../modules/conversations/conversations.repository.js';
+import { findUserById } from '../../modules/auth/auth.repository.js';
 import {
   addReactionREST,
   removeReactionREST,
-} from '../../modules/conversations/conversations.service';
+} from '../../modules/conversations/conversations.service.js';
 import {
   isBlockedByAnyMember,
   hasBlockedAnyMember,
-} from '../../modules/users/blockedUsers.repository';
-import { notifyConversationMentions } from '../../modules/notifications/notifications.service';
-import { buildInitialReceipt } from '../../modules/conversations/conversations.service';
-import { toSender } from '../../utils/sender';
-import { AppError } from '../../utils/errors';
-import { sendIncomingPush } from '../../modules/devices/devices.service';
-import { env } from '../../config/env';
-import { unlinkQuietly } from '../../utils/cleanup';
+} from '../../modules/users/blockedUsers.repository.js';
+import { notifyConversationMentions } from '../../modules/notifications/notifications.service.js';
+import { buildInitialReceipt } from '../../modules/conversations/conversations.service.js';
+import { toSender } from '../../utils/sender.js';
+import { AppError } from '../../utils/errors.js';
+import { sendIncomingPush } from '../../modules/devices/devices.service.js';
+import { env } from '../../config/env.js';
+import { unlinkQuietly } from '../../utils/cleanup.js';
 import path from 'path';
-import { createMessageRateLimiter, createFixedWindowLimiter } from '../rateLimit';
-import { computeRecipientStatus } from '../activeViewers';
+import { createMessageRateLimiter, createFixedWindowLimiter } from '../rateLimit.js';
+import { computeRecipientStatus } from '../activeViewers.js';
 
 /**
  * Limiter laju pesan gabungan (per detik + per menit) per user. Dipakai

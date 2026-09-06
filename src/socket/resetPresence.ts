@@ -3,8 +3,8 @@
  * agar flag isOnline basi dari sesi sebelumnya tidak tertinggal.
  */
 import { eq } from 'drizzle-orm';
-import db from '../db/index';
-import { users } from '../db/schema/users';
+import db from '../db/index.js';
+import { users } from '../db/schema/users.js';
 
 /** Menandai seluruh user yang berstatus online menjadi offline di database. */
 export async function resetOnlineStatus(): Promise<void> {

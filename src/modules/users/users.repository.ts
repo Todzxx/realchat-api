@@ -2,9 +2,9 @@
  * Lapisan akses data pengguna: pembaruan profil, avatar, dan pergantian
  * password atomik. Mengembalikan kolom publik agar data sensitif tidak bocor.
  */
-import db from '../../db/index';
-import { users } from '../../db/schema/users';
-import { refreshTokens } from '../../db/schema/refreshTokens';
+import db from '../../db/index.js';
+import { users } from '../../db/schema/users.js';
+import { refreshTokens } from '../../db/schema/refreshTokens.js';
 import { eq, sql, inArray, and } from 'drizzle-orm';
 
 /** Daftar kolom pengguna yang aman untuk dikirim ke klien (tanpa hash password). */

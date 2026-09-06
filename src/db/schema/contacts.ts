@@ -3,7 +3,7 @@
  * customName memungkinkan pengguna menamai ulang kontak secara privat.
  */
 import { pgTable, uuid, text, timestamp, unique, index } from 'drizzle-orm/pg-core';
-import { users } from './users';
+import { users } from './users.js';
 
 export const contacts = pgTable(
   'contacts',

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import { env } from '../../config/env';
-import * as googleService from './google.service';
+import { env } from '../../config/env.js';
+import * as googleService from './google.service.js';
 
 /** Redirect user to Google OAuth consent screen. */
 export function googleAuth(_req: Request, res: Response) {

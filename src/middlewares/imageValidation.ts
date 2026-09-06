@@ -8,9 +8,9 @@
 import { Request, Response, NextFunction } from 'express';
 import { promises as fs } from 'fs';
 import path from 'path';
-import { env } from '../config/env';
-import { BadRequestError } from '../utils/errors';
-import { unlinkQuietly } from '../utils/cleanup';
+import { env } from '../config/env.js';
+import { BadRequestError } from '../utils/errors.js';
+import { unlinkQuietly } from '../utils/cleanup.js';
 
 /** Tipe gambar yang dikenali dari pemeriksaan magic bytes. */
 export type DetectedImageType = 'jpeg' | 'png' | 'webp';

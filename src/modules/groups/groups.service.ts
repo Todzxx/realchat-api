@@ -3,9 +3,9 @@
  * manajemen anggota dan peran, keluar grup dengan transfer kepemilikan,
  * serta pembubaran grup termasuk pembersihan berkas lampiran.
  */
-import * as repository from './groups.repository';
-import { findUserById } from '../auth/auth.repository';
-import * as contactsRepository from '../contacts/contacts.repository';
+import * as repository from './groups.repository.js';
+import { findUserById } from '../auth/auth.repository.js';
+import * as contactsRepository from '../contacts/contacts.repository.js';
 import {
   findConversationById,
   findMembersByConversationId,
@@ -18,16 +18,16 @@ import {
   deleteConversation,
   findConversationAttachmentPaths,
   countMessageFileReferences,
-} from '../conversations/conversations.repository';
-import { NotFoundError, BadRequestError, ForbiddenError } from '../../utils/errors';
-import { getIO } from '../../socket/index';
-import { forceLeaveConversationRoom } from '../../socket/room';
-import { createAndEmitMany } from '../notifications/notifications.service';
-import { findGroupInviteOptOuts } from '../users/users.repository';
-import { MAX_GROUP_MEMBERS } from '../../config/constants';
-import { env } from '../../config/env';
-import { unlinkQuietly } from '../../utils/cleanup';
-import { toSender } from '../../utils/sender';
+} from '../conversations/conversations.repository.js';
+import { NotFoundError, BadRequestError, ForbiddenError } from '../../utils/errors.js';
+import { getIO } from '../../socket/index.js';
+import { forceLeaveConversationRoom } from '../../socket/room.js';
+import { createAndEmitMany } from '../notifications/notifications.service.js';
+import { findGroupInviteOptOuts } from '../users/users.repository.js';
+import { MAX_GROUP_MEMBERS } from '../../config/constants.js';
+import { env } from '../../config/env.js';
+import { unlinkQuietly } from '../../utils/cleanup.js';
+import { toSender } from '../../utils/sender.js';
 import path from 'path';
 
 // Nama tampilan dengan fallback: fullName -> username -> 'Unknown'.

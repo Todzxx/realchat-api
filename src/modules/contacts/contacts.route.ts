@@ -4,10 +4,10 @@
  * verifyJWT dan tervalidasi lewat middleware validate().
  */
 import { Router } from 'express';
-import { verifyJWT } from '../../middlewares/verifyJWT';
-import { validate } from '../../middlewares/validate';
-import * as validator from './contacts.validator';
-import * as controller from './contacts.controller';
+import { verifyJWT } from '../../middlewares/verifyJWT.js';
+import { validate } from '../../middlewares/validate.js';
+import * as validator from './contacts.validator.js';
+import * as controller from './contacts.controller.js';
 
 /** Instance router Express untuk endpoint kontak (dipasang di /api/contacts). */
 const router = Router();

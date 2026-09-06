@@ -3,12 +3,12 @@
  * satu transaksi, hapus, ubah nama kustom, dan pencarian daftar kontak
  * dengan filter serta pengurutan.
  */
-import db from '../../db/index';
-import { contacts } from '../../db/schema/contacts';
-import { users } from '../../db/schema/users';
-import { notifications } from '../../db/schema/notifications';
+import db from '../../db/index.js';
+import { contacts } from '../../db/schema/contacts.js';
+import { users } from '../../db/schema/users.js';
+import { notifications } from '../../db/schema/notifications.js';
 import { eq, and, desc, asc, inArray, ilike, or } from 'drizzle-orm';
-import type { CreateNotificationData } from '../notifications/notifications.repository';
+import type { CreateNotificationData } from '../notifications/notifications.repository.js';
 
 /** Kolom kontak yang dikembalikan oleh query pada file ini. */
 const contactColumns = {

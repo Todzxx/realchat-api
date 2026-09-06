@@ -5,10 +5,10 @@
  */
 import { Server, Socket } from 'socket.io';
 import { z } from 'zod';
-import { env } from '../../config/env';
-import { createFixedWindowLimiter } from '../rateLimit';
-import { addActiveViewer, removeActiveViewer } from '../activeViewers';
-import { markConversationAsRead } from '../../modules/conversations/conversations.service';
+import { env } from '../../config/env.js';
+import { createFixedWindowLimiter } from '../rateLimit.js';
+import { addActiveViewer, removeActiveViewer } from '../activeViewers.js';
+import { markConversationAsRead } from '../../modules/conversations/conversations.service.js';
 
 const activityPayloadSchema = z.object({
   conversationId: z.string().uuid(),

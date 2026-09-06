@@ -4,28 +4,28 @@
  * semat, bintang, teruskan), status terbaca, bisu, dan bersih-riwayat.
  * Menjadi jembatan antara controller/socket dengan repository.
  */
-import * as repository from './conversations.repository';
-import * as groupService from '../groups/groups.service';
-import { findUserById } from '../auth/auth.repository';
-import { findPresenceTargets } from '../users/users.repository';
-import { filterVisiblePresenceIds } from '../users/presencePrivacy';
-import { NotFoundError, BadRequestError, ForbiddenError, AppError } from '../../utils/errors';
-import { toSender } from '../../utils/sender';
-import { getIO } from '../../socket/index';
-import { forceLeaveConversationRoom } from '../../socket/room';
-import { computeRecipientStatus } from '../../socket/activeViewers';
-import { sendIncomingPush } from '../devices/devices.service';
-import { messageRateLimiter } from '../../socket/handlers/message.handler';
-import { unlinkQuietly } from '../../utils/cleanup';
-import { env } from '../../config/env';
-import { notifyConversationMentions } from '../notifications/notifications.service';
+import * as repository from './conversations.repository.js';
+import * as groupService from '../groups/groups.service.js';
+import { findUserById } from '../auth/auth.repository.js';
+import { findPresenceTargets } from '../users/users.repository.js';
+import { filterVisiblePresenceIds } from '../users/presencePrivacy.js';
+import { NotFoundError, BadRequestError, ForbiddenError, AppError } from '../../utils/errors.js';
+import { toSender } from '../../utils/sender.js';
+import { getIO } from '../../socket/index.js';
+import { forceLeaveConversationRoom } from '../../socket/room.js';
+import { computeRecipientStatus } from '../../socket/activeViewers.js';
+import { sendIncomingPush } from '../devices/devices.service.js';
+import { messageRateLimiter } from '../../socket/handlers/message.handler.js';
+import { unlinkQuietly } from '../../utils/cleanup.js';
+import { env } from '../../config/env.js';
+import { notifyConversationMentions } from '../notifications/notifications.service.js';
 import path from 'path';
 import {
   isBlockedByUser,
   isBlockedByAnyMember,
   hasBlockedAnyMember,
   getBlockRelationUserIds,
-} from '../users/blockedUsers.repository';
+} from '../users/blockedUsers.repository.js';
 
 /**
  * Membuat percakapan privat baru atau mengembalikan yang sudah ada,

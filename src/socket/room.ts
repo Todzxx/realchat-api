@@ -2,7 +2,7 @@
  * Utilitas manajemen room Socket.IO. Dipanggil dari lapisan service saat
  * state percakapan berubah dan keanggotaan room perlu disesuaikan paksa.
  */
-import { getIO } from './index';
+import { getIO } from './index.js';
 
 /**
  * Mengeluarkan semua socket milik seorang user dari room percakapan.

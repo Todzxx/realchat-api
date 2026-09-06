@@ -4,8 +4,8 @@
  * sehingga semua perangkat milik user yang sama akan menerima notifikasi.
  * Menyediakan mode dry-run untuk lingkungan non-produksi (hanya log payload).
  */
-import { env } from '../../config/env';
-import { isOneSignalConfigured, sendOneSignalNotification } from '../../config/onesignal';
+import { env } from '../../config/env.js';
+import { isOneSignalConfigured, sendOneSignalNotification } from '../../config/onesignal.js';
 
 /** Data kustom yang disisipkan ke payload push agar client bisa navigasi. */
 export interface PushData extends Record<string, string> {

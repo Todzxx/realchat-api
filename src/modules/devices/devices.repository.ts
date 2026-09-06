@@ -3,8 +3,8 @@
  * subscription id OneSignal, pencarian subscription per kumpulan user,
  * penghapusan, dan pemangkasan terlama agar jumlah per user tetap dalam batas.
  */
-import db from '../../db/index';
-import { deviceTokens } from '../../db/schema/deviceTokens';
+import db from '../../db/index.js';
+import { deviceTokens } from '../../db/schema/deviceTokens.js';
 import { eq, and, inArray, asc } from 'drizzle-orm';
 
 /**

@@ -4,12 +4,12 @@
  * dan controller terkait; rute DELETE /me dilindungi verifyJWT.
  */
 import { Router } from 'express';
-import { verifyJWT } from '../../middlewares/verifyJWT';
-import { validate } from '../../middlewares/validate';
-import { authRateLimiter, refreshRateLimiter } from '../../middlewares/rateLimiter';
-import * as validator from './auth.validator';
-import * as controller from './auth.controller';
-import * as googleController from './google.controller';
+import { verifyJWT } from '../../middlewares/verifyJWT.js';
+import { validate } from '../../middlewares/validate.js';
+import { authRateLimiter, refreshRateLimiter } from '../../middlewares/rateLimiter.js';
+import * as validator from './auth.validator.js';
+import * as controller from './auth.controller.js';
+import * as googleController from './google.controller.js';
 
 /** Instance router Express untuk seluruh endpoint autentikasi. */
 const router = Router();

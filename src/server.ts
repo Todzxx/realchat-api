@@ -5,10 +5,10 @@
  */
 
 import http from 'http';
-import app from './app';
-import { env } from './config/env';
-import { initializeSocket } from './socket/index';
-import { resetOnlineStatus } from './socket/resetPresence';
+import app from './app.js';
+import { env } from './config/env.js';
+import { initializeSocket } from './socket/index.js';
+import { resetOnlineStatus } from './socket/resetPresence.js';
 
 /** Helper kecil untuk mencetak error berlabel ke console. */
 const logError = (label: string, err: unknown) => console.error(`[${label}]`, err);

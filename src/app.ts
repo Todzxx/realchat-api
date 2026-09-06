@@ -10,10 +10,10 @@ import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import path from 'path';
-import { env } from './config/env';
-import { ALLOWED_MESSAGE_EXTENSIONS } from './config/constants';
-import routes from './routes/index';
-import { errorHandler } from './middlewares/errorHandler';
+import { env } from './config/env.js';
+import { ALLOWED_MESSAGE_EXTENSIONS } from './config/constants.js';
+import routes from './routes/index.js';
+import { errorHandler } from './middlewares/errorHandler.js';
 
 const app = express();
 

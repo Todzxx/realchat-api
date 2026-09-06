@@ -4,9 +4,9 @@
  * pekerjaan ke contacts.service dan mengirim respons JSON.
  */
 import { Response, NextFunction } from 'express';
-import { AuthRequest } from '../../middlewares/verifyJWT';
-import * as contactService from './contacts.service';
-import { contactListQuerySchema } from './contacts.validator';
+import { AuthRequest } from '../../middlewares/verifyJWT.js';
+import * as contactService from './contacts.service.js';
+import { contactListQuerySchema } from './contacts.validator.js';
 
 /** Menambahkan kontak berdasarkan username yang dikirim di body. */
 export async function addContactByUsername(req: AuthRequest, res: Response, next: NextFunction) {

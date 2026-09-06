@@ -6,19 +6,19 @@
 import { Server as HttpServer } from 'http';
 import { Server, Socket } from 'socket.io';
 import jwt from 'jsonwebtoken';
-import { env } from '../config/env';
-import db from '../db/index';
-import { users } from '../db/schema/users';
-import { contacts } from '../db/schema/contacts';
-import { conversationMembers } from '../db/schema/conversationMembers';
+import { env } from '../config/env.js';
+import db from '../db/index.js';
+import { users } from '../db/schema/users.js';
+import { contacts } from '../db/schema/contacts.js';
+import { conversationMembers } from '../db/schema/conversationMembers.js';
 import { eq, and, ne, inArray } from 'drizzle-orm';
-import { onlineUsers } from './onlineUsers';
-import * as blockedRepository from '../modules/users/blockedUsers.repository';
-import { setupMessageHandlers, catchUpMessageDelivery } from './handlers/message.handler';
-import { setupTypingHandlers } from './handlers/typing.handler';
-import { setupGroupHandlers } from './handlers/group.handler';
-import { setupActivityHandlers } from './handlers/activity.handler';
-import { clearSocketActiveViewers } from './activeViewers';
+import { onlineUsers } from './onlineUsers.js';
+import * as blockedRepository from '../modules/users/blockedUsers.repository.js';
+import { setupMessageHandlers, catchUpMessageDelivery } from './handlers/message.handler.js';
+import { setupTypingHandlers } from './handlers/typing.handler.js';
+import { setupGroupHandlers } from './handlers/group.handler.js';
+import { setupActivityHandlers } from './handlers/activity.handler.js';
+import { clearSocketActiveViewers } from './activeViewers.js';
 
 let io: Server;
 

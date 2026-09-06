@@ -13,8 +13,8 @@ import {
   bigint,
   integer,
 } from 'drizzle-orm/pg-core';
-import { users } from './users';
-import { conversations } from './conversations';
+import { users } from './users.js';
+import { conversations } from './conversations.js';
 
 export const messages = pgTable(
   'messages',

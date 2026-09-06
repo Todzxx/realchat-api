@@ -4,8 +4,8 @@
  * (mis. setelah disembunyikan), atau keluar room saat chat ditutup.
  */
 import { Socket } from 'socket.io';
-import db from '../../db/index';
-import { conversationMembers } from '../../db/schema/conversationMembers';
+import db from '../../db/index.js';
+import { conversationMembers } from '../../db/schema/conversationMembers.js';
 import { eq, and } from 'drizzle-orm';
 
 /** Mendaftarkan listener `group:join` dan `group:leave` untuk satu socket. */

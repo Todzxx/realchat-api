@@ -6,7 +6,7 @@
 
 import jwt from 'jsonwebtoken';
 import { randomUUID } from 'node:crypto';
-import { env } from '../config/env';
+import { env } from '../config/env.js';
 
 /**
  * Membuat access token JWT berumur pendek.

@@ -2,7 +2,7 @@
  * Pelacak viewer aktif per percakapan dalam memori. Menjadi dasar penentuan
  * status pesan SEEN/DELIVERED/SENT serta event aktivitas user-away/user-back.
  */
-import { onlineUsers } from './onlineUsers';
+import { onlineUsers } from './onlineUsers.js';
 
 // Map bersarang: conversationId -> userId -> himpunan socket.id. Satu user
 // bisa membuka chat dari beberapa tab/perangkat sekaligus, sehingga user

@@ -4,14 +4,14 @@
  * dilindungi middleware verifyJWT.
  */
 import { Router } from 'express';
-import { verifyJWT } from '../../middlewares/verifyJWT';
-import { validate } from '../../middlewares/validate';
-import { uploadAvatar, uploadBanner } from '../../middlewares/upload';
-import { validateAndRenameImage } from '../../middlewares/imageValidation';
-import * as validator from './users.validator';
-import * as controller from './users.controller';
-import { getRelationship } from '../contacts/contacts.controller';
-import { userIdParamSchema } from '../contacts/contacts.validator';
+import { verifyJWT } from '../../middlewares/verifyJWT.js';
+import { validate } from '../../middlewares/validate.js';
+import { uploadAvatar, uploadBanner } from '../../middlewares/upload.js';
+import { validateAndRenameImage } from '../../middlewares/imageValidation.js';
+import * as validator from './users.validator.js';
+import * as controller from './users.controller.js';
+import { getRelationship } from '../contacts/contacts.controller.js';
+import { userIdParamSchema } from '../contacts/contacts.validator.js';
 
 /** Instance router Express untuk endpoint pengguna (dipasang di /api/users). */
 const router = Router();

@@ -3,20 +3,20 @@
  * Setiap perubahan profil memicu event socket 'user:updated' ke kontak
  * dan anggota grup terkait agar tampilan tetap sinkron secara realtime.
  */
-import * as repository from './users.repository';
-import * as blockedRepository from './blockedUsers.repository';
-import { findUserById, findUserByUsername } from '../auth/auth.repository';
-import { comparePassword, hashPassword } from '../../utils/hashPassword';
-import { NotFoundError, ConflictError, BadRequestError } from '../../utils/errors';
-import db from '../../db/index';
-import { contacts } from '../../db/schema/contacts';
-import { conversationMembers } from '../../db/schema/conversationMembers';
-import { conversations } from '../../db/schema/conversations';
+import * as repository from './users.repository.js';
+import * as blockedRepository from './blockedUsers.repository.js';
+import { findUserById, findUserByUsername } from '../auth/auth.repository.js';
+import { comparePassword, hashPassword } from '../../utils/hashPassword.js';
+import { NotFoundError, ConflictError, BadRequestError } from '../../utils/errors.js';
+import db from '../../db/index.js';
+import { contacts } from '../../db/schema/contacts.js';
+import { conversationMembers } from '../../db/schema/conversationMembers.js';
+import { conversations } from '../../db/schema/conversations.js';
 import { eq, and, or, ne, inArray } from 'drizzle-orm';
-import { getIO } from '../../socket/index';
-import { canSeePresence } from './presencePrivacy';
-import { unlinkQuietly } from '../../utils/cleanup';
-import { env } from '../../config/env';
+import { getIO } from '../../socket/index.js';
+import { canSeePresence } from './presencePrivacy.js';
+import { unlinkQuietly } from '../../utils/cleanup.js';
+import { env } from '../../config/env.js';
 import path from 'path';
 
 /**

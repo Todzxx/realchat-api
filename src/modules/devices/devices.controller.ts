@@ -4,8 +4,8 @@
  * diteruskan ke middleware penanganan error lewat next().
  */
 import { Response, NextFunction } from 'express';
-import { AuthRequest } from '../../middlewares/verifyJWT';
-import * as deviceService from './devices.service';
+import { AuthRequest } from '../../middlewares/verifyJWT.js';
+import * as deviceService from './devices.service.js';
 
 /** POST /devices — daftarkan token FCM milik user yang sedang login. */
 export async function registerDevice(req: AuthRequest, res: Response, next: NextFunction) {

@@ -3,8 +3,8 @@
  * Semua endpoint dilindungi verifyJWT karena hanya untuk user yang login.
  */
 import { Router } from 'express';
-import { verifyJWT } from '../../middlewares/verifyJWT';
-import * as controller from './notifications.controller';
+import { verifyJWT } from '../../middlewares/verifyJWT.js';
+import * as controller from './notifications.controller.js';
 
 const router = Router();
 

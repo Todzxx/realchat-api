@@ -7,12 +7,12 @@
 import { Server, Socket } from 'socket.io';
 import { z } from 'zod';
 import { eq, and, ne } from 'drizzle-orm';
-import { env } from '../../config/env';
-import db from '../../db/index';
-import { createFixedWindowLimiter } from '../rateLimit';
-import { findConversationMembership } from '../../modules/conversations/conversations.repository';
-import { conversationMembers } from '../../db/schema/conversationMembers';
-import { getBlockRelationUserIds } from '../../modules/users/blockedUsers.repository';
+import { env } from '../../config/env.js';
+import db from '../../db/index.js';
+import { createFixedWindowLimiter } from '../rateLimit.js';
+import { findConversationMembership } from '../../modules/conversations/conversations.repository.js';
+import { conversationMembers } from '../../db/schema/conversationMembers.js';
+import { getBlockRelationUserIds } from '../../modules/users/blockedUsers.repository.js';
 
 const typingPayloadSchema = z.object({
   conversationId: z.string().uuid(),

@@ -3,14 +3,19 @@
  * kustom, cek status kontak, dan relasi dua arah. Setiap penambahan memicu
  * notifikasi dan event socket 'contact:new' ke pengguna yang ditambahkan.
  */
-import * as repository from './contacts.repository';
-import { findUserById, findUserByUsername, findUsersByIds } from '../auth/auth.repository';
-import { NotFoundError, ConflictError, BadRequestError, ForbiddenError } from '../../utils/errors';
-import { getIO } from '../../socket/index';
-import { hasBlockRelation, getBlockRelationUserIds } from '../users/blockedUsers.repository';
-import { findPresenceTargets } from '../users/users.repository';
-import { filterVisiblePresenceIds } from '../users/presencePrivacy';
-import type { CreateNotificationData } from '../notifications/notifications.repository';
+import * as repository from './contacts.repository.js';
+import { findUserById, findUserByUsername, findUsersByIds } from '../auth/auth.repository.js';
+import {
+  NotFoundError,
+  ConflictError,
+  BadRequestError,
+  ForbiddenError,
+} from '../../utils/errors.js';
+import { getIO } from '../../socket/index.js';
+import { hasBlockRelation, getBlockRelationUserIds } from '../users/blockedUsers.repository.js';
+import { findPresenceTargets } from '../users/users.repository.js';
+import { filterVisiblePresenceIds } from '../users/presencePrivacy.js';
+import type { CreateNotificationData } from '../notifications/notifications.repository.js';
 
 /** Data ringkas aktor (pemilik kontak) untuk isi notifikasi dan event socket. */
 type ContactActor = { username: string | null; fullName: string | null; avatarUrl: string | null };

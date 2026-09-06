@@ -4,10 +4,10 @@
  * query sebelum masuk ke controller.
  */
 import { Router } from 'express';
-import { verifyJWT } from '../../middlewares/verifyJWT';
-import { validate } from '../../middlewares/validate';
-import * as validator from './search.validator';
-import * as controller from './search.controller';
+import { verifyJWT } from '../../middlewares/verifyJWT.js';
+import { validate } from '../../middlewares/validate.js';
+import * as validator from './search.validator.js';
+import * as controller from './search.controller.js';
 
 const router = Router();
 

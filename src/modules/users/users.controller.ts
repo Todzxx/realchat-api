@@ -4,10 +4,10 @@
  * users.service dan mengirim respons JSON.
  */
 import { Response, NextFunction } from 'express';
-import { AuthRequest } from '../../middlewares/verifyJWT';
-import { BadRequestError } from '../../utils/errors';
-import * as userService from './users.service';
-import { userIdSchema } from './users.validator';
+import { AuthRequest } from '../../middlewares/verifyJWT.js';
+import { BadRequestError } from '../../utils/errors.js';
+import * as userService from './users.service.js';
+import { userIdSchema } from './users.validator.js';
 
 /** Mengembalikan profil lengkap pengguna yang sedang login. */
 export async function getMe(req: AuthRequest, res: Response, next: NextFunction) {

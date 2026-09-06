@@ -3,16 +3,16 @@
  * dan rotasi refresh token, token reset/verifikasi email, serta anonimisasi
  * akun saat penghapusan. Hanya berisi query Drizzle tanpa logika bisnis.
  */
-import db from '../../db/index';
-import { users } from '../../db/schema/users';
-import { refreshTokens } from '../../db/schema/refreshTokens';
-import { conversationMembers } from '../../db/schema/conversationMembers';
-import { contacts } from '../../db/schema/contacts';
-import { blockedUsers } from '../../db/schema/blockedUsers';
-import { messageStars } from '../../db/schema/messageStars';
-import { messageReactions } from '../../db/schema/messageReactions';
-import { deviceTokens } from '../../db/schema/deviceTokens';
-import { notifications } from '../../db/schema/notifications';
+import db from '../../db/index.js';
+import { users } from '../../db/schema/users.js';
+import { refreshTokens } from '../../db/schema/refreshTokens.js';
+import { conversationMembers } from '../../db/schema/conversationMembers.js';
+import { contacts } from '../../db/schema/contacts.js';
+import { blockedUsers } from '../../db/schema/blockedUsers.js';
+import { messageStars } from '../../db/schema/messageStars.js';
+import { messageReactions } from '../../db/schema/messageReactions.js';
+import { deviceTokens } from '../../db/schema/deviceTokens.js';
+import { notifications } from '../../db/schema/notifications.js';
 import { eq, or, and, gt, inArray, isNull, sql } from 'drizzle-orm';
 
 /** Menyimpan pengguna baru beserta hash password-nya. */

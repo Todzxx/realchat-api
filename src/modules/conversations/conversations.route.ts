@@ -4,12 +4,12 @@
  * dan rute kirim lampiran menambahkan pipeline unggah Multer.
  */
 import { Router } from 'express';
-import { verifyJWT } from '../../middlewares/verifyJWT';
-import { validate } from '../../middlewares/validate';
-import { uploadMessageAttachment } from '../../middlewares/upload';
-import { validateMessageUpload } from '../../middlewares/imageValidation';
-import * as validator from './conversations.validator';
-import * as controller from './conversations.controller';
+import { verifyJWT } from '../../middlewares/verifyJWT.js';
+import { validate } from '../../middlewares/validate.js';
+import { uploadMessageAttachment } from '../../middlewares/upload.js';
+import { validateMessageUpload } from '../../middlewares/imageValidation.js';
+import * as validator from './conversations.validator.js';
+import * as controller from './conversations.controller.js';
 
 // Router utama modul, dipasang pada prefix /conversations.
 const router = Router();

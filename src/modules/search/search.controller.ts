@@ -4,9 +4,9 @@
  * merespons JSON; error diteruskan ke middleware penanganan error.
  */
 import { Response, NextFunction } from 'express';
-import { AuthRequest } from '../../middlewares/verifyJWT';
-import * as searchService from './search.service';
-import { searchQuerySchema, messageSearchQuerySchema } from './search.validator';
+import { AuthRequest } from '../../middlewares/verifyJWT.js';
+import * as searchService from './search.service.js';
+import { searchQuerySchema, messageSearchQuerySchema } from './search.validator.js';
 
 /** GET /search/users — cari user berdasarkan username atau nama lengkap. */
 export async function searchUsers(req: AuthRequest, res: Response, next: NextFunction) {

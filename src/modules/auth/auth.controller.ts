@@ -4,8 +4,8 @@
  * request HTTP, memanggil auth.service, dan mengirim respons JSON.
  */
 import { Request, Response, NextFunction } from 'express';
-import { AuthRequest } from '../../middlewares/verifyJWT';
-import * as authService from './auth.service';
+import { AuthRequest } from '../../middlewares/verifyJWT.js';
+import * as authService from './auth.service.js';
 
 /** Mendaftarkan pengguna baru lalu mengirim email verifikasi. */
 export async function register(req: Request, res: Response, next: NextFunction) {

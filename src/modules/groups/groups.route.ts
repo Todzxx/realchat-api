@@ -4,12 +4,12 @@
  * Seluruh rute mewajibkan JWT; rute avatar memakai pipeline Multer.
  */
 import { Router } from 'express';
-import { verifyJWT } from '../../middlewares/verifyJWT';
-import { validate } from '../../middlewares/validate';
-import { uploadGroupPhoto } from '../../middlewares/upload';
-import { validateAndRenameImage } from '../../middlewares/imageValidation';
-import * as validator from './groups.validator';
-import * as controller from './groups.controller';
+import { verifyJWT } from '../../middlewares/verifyJWT.js';
+import { validate } from '../../middlewares/validate.js';
+import { uploadGroupPhoto } from '../../middlewares/upload.js';
+import { validateAndRenameImage } from '../../middlewares/imageValidation.js';
+import * as validator from './groups.validator.js';
+import * as controller from './groups.controller.js';
 
 // Router grup dipasang pada prefix /groups.
 const router = Router();

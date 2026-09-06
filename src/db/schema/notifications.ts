@@ -3,9 +3,9 @@
  * actorId = pengguna penyebab notifikasi; boleh null untuk notifikasi sistem.
  */
 import { pgTable, uuid, varchar, text, boolean, timestamp, index } from 'drizzle-orm/pg-core';
-import { users } from './users';
-import { conversations } from './conversations';
-import { messages } from './messages';
+import { users } from './users.js';
+import { conversations } from './conversations.js';
+import { messages } from './messages.js';
 
 export const notifications = pgTable(
   'notifications',

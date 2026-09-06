@@ -3,10 +3,10 @@
  * pemeriksaan status blokir (termasuk konteks anggota percakapan), dan
  * pengambilan daftar ID terkait untuk penyembunyian kehadiran.
  */
-import db from '../../db/index';
-import { blockedUsers } from '../../db/schema/blockedUsers';
-import { users } from '../../db/schema/users';
-import { conversationMembers } from '../../db/schema/conversationMembers';
+import db from '../../db/index.js';
+import { blockedUsers } from '../../db/schema/blockedUsers.js';
+import { users } from '../../db/schema/users.js';
+import { conversationMembers } from '../../db/schema/conversationMembers.js';
 import { eq, and, or } from 'drizzle-orm';
 
 /** Mencatat relasi blokir baru dari blocker ke blocked. */

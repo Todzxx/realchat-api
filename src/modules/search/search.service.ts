@@ -3,10 +3,10 @@
  * keanggotaan percakapan, paginasi berbasis cursor (fetch limit+1 untuk deteksi
  * halaman berikutnya), dan pembentukan struktur respons yang siap dikirim.
  */
-import * as repository from './search.repository';
-import { ForbiddenError } from '../../utils/errors';
-import { findPresenceTargets } from '../users/users.repository';
-import { filterVisiblePresenceIds } from '../users/presencePrivacy';
+import * as repository from './search.repository.js';
+import { ForbiddenError } from '../../utils/errors.js';
+import { findPresenceTargets } from '../users/users.repository.js';
+import { filterVisiblePresenceIds } from '../users/presencePrivacy.js';
 
 /**
  * Mencari user berdasarkan kata kunci, mengabaikan diri sendiri. Kehadiran

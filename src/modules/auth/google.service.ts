@@ -1,8 +1,8 @@
 import { OAuth2Client } from 'google-auth-library';
 import { randomUUID } from 'crypto';
-import { env } from '../../config/env';
-import * as repository from './auth.repository';
-import { generateAccessToken, generateRefreshToken } from '../../utils/generateToken';
+import { env } from '../../config/env.js';
+import * as repository from './auth.repository.js';
+import { generateAccessToken, generateRefreshToken } from '../../utils/generateToken.js';
 import jwt from 'jsonwebtoken';
 
 const googleClient = new OAuth2Client(

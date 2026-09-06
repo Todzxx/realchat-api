@@ -9,8 +9,8 @@ import { Request, Response, NextFunction } from 'express';
 import { ZodError } from 'zod';
 import { MulterError } from 'multer';
 import postgres from 'postgres';
-import { AppError } from '../utils/errors';
-import { unlinkQuietly } from '../utils/cleanup';
+import { AppError } from '../utils/errors.js';
+import { unlinkQuietly } from '../utils/cleanup.js';
 
 /**
  * Mencari kode error PostgreSQL dengan menelusuri rantai `cause` (maks.

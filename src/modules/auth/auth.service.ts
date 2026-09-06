@@ -3,21 +3,21 @@
  * deteksi reuse, reset & verifikasi email, serta penghapusan akun secara
  * anonim. Menjembatani controller dengan repository dan layanan terkait.
  */
-import * as repository from './auth.repository';
-import * as conversationService from '../conversations/conversations.service';
-import { hashPassword, comparePassword } from '../../utils/hashPassword';
-import { generateAccessToken, generateRefreshToken } from '../../utils/generateToken';
-import { sendVerificationEmail, sendResetPasswordEmail } from '../../utils/sendEmail';
+import * as repository from './auth.repository.js';
+import * as conversationService from '../conversations/conversations.service.js';
+import { hashPassword, comparePassword } from '../../utils/hashPassword.js';
+import { generateAccessToken, generateRefreshToken } from '../../utils/generateToken.js';
+import { sendVerificationEmail, sendResetPasswordEmail } from '../../utils/sendEmail.js';
 import {
   ConflictError,
   UnauthorizedError,
   BadRequestError,
   NotFoundError,
   ForbiddenError,
-} from '../../utils/errors';
-import { unlinkQuietly } from '../../utils/cleanup';
-import { env } from '../../config/env';
-import { getIO } from '../../socket/index';
+} from '../../utils/errors.js';
+import { unlinkQuietly } from '../../utils/cleanup.js';
+import { env } from '../../config/env.js';
+import { getIO } from '../../socket/index.js';
 import jwt from 'jsonwebtoken';
 import crypto, { randomUUID } from 'crypto';
 import path from 'path';

@@ -7,9 +7,9 @@
 
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { env } from '../config/env';
-import db from '../db/index';
-import { users } from '../db/schema/users';
+import { env } from '../config/env.js';
+import db from '../db/index.js';
+import { users } from '../db/schema/users.js';
 import { eq } from 'drizzle-orm';
 
 /** Request Express yang sudah melewati verifyJWT dan membawa userId. */

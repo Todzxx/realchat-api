@@ -2,8 +2,8 @@
  * Repository khusus grup: pembaruan metadata percakapan bertipe GROUP.
  * Operasi anggota/peran yang kompleks ada di conversations.repository.
  */
-import db from '../../db/index';
-import { conversations } from '../../db/schema/conversations';
+import db from '../../db/index.js';
+import { conversations } from '../../db/schema/conversations.js';
 import { eq } from 'drizzle-orm';
 
 /** Perbarui nama/deskripsi grup dan kembalikan baris terbarunya. */

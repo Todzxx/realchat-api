@@ -3,8 +3,8 @@
  * penghitungan belum dibaca, dan penandaan baca. Semua query dibatasi pada
  * kolom terpilih agar bentuk data konsisten untuk lapisan service.
  */
-import db from '../../db/index';
-import { notifications } from '../../db/schema/notifications';
+import db from '../../db/index.js';
+import { notifications } from '../../db/schema/notifications.js';
 import { and, desc, eq, sql } from 'drizzle-orm';
 
 /** Kolom notifikasi yang diambil dari DB untuk semua query select. */

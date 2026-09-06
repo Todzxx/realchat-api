@@ -4,10 +4,10 @@
  * ke respons JSON standar { success, message?, data }.
  */
 import { Response, NextFunction } from 'express';
-import { AuthRequest } from '../../middlewares/verifyJWT';
-import * as groupService from './groups.service';
-import { groupIdUserIdSchema } from './groups.validator';
-import { BadRequestError } from '../../utils/errors';
+import { AuthRequest } from '../../middlewares/verifyJWT.js';
+import * as groupService from './groups.service.js';
+import { groupIdUserIdSchema } from './groups.validator.js';
+import { BadRequestError } from '../../utils/errors.js';
 
 /** Membuat grup baru; avatar opsional dari unggahan multipart. */
 export async function createGroup(req: AuthRequest, res: Response, next: NextFunction) {

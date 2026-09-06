@@ -3,7 +3,7 @@
  * Membaca ONESIGNAL_APP_ID dan ONESIGNAL_REST_API_KEY dari env.
  * Bila tidak diisi, push dinonaktifkan dengan aman (isOneSignalConfigured() == false).
  */
-import { env } from './env';
+import { env } from './env.js';
 
 const ONESIGNAL_API_URL = 'https://api.onesignal.com/notifications';
 
