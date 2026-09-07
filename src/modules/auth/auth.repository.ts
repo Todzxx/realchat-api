@@ -216,6 +216,32 @@ export async function updateVerifiedStatus(userId: string) {
   return user;
 }
 
+/**
+ * Menautkan akun ke penyedia OAuth (mis. google) beserta providerId-nya,
+ * sekaligus menyegarkan fullName/avatarUrl bila dikirim. Dipakai saat
+ * login Google menemukan akun existing via email agar login berikutnya
+ * langsung ditemukan lewat findUserByProviderId.
+ */
+export async function linkProvider(
+  userId: string,
+  provider: string,
+  providerId: string,
+  data: { fullName?: string; avatarUrl?: string } = {},
+) {
+  const [user] = await db
+    .update(users)
+    .set({
+      provider,
+      providerId,
+      ...(data.fullName !== undefined ? { fullName: data.fullName } : {}),
+      ...(data.avatarUrl !== undefined ? { avatarUrl: data.avatarUrl } : {}),
+      updatedAt: new Date(),
+    })
+    .where(eq(users.id, userId))
+    .returning();
+  return user || null;
+}
+
 /** Menyimpan token verifikasi email beserta waktu kedaluwarsanya. */
 export async function saveVerificationToken(userId: string, token: string, expiresAt: Date) {
   const [user] = await db

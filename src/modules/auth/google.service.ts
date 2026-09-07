@@ -41,6 +41,26 @@ export async function handleGoogleCallback(code: string) {
 
     if (existingByEmail) {
       user = existingByEmail;
+      // Hanya ubah akun existing bila Google menkonfirmasi email_verified,
+      // agar akun local/unauthorized tidak bisa dihubungkan tanpa bukti pemilik.
+      const emailVerified = payload.email_verified === true;
+      if (emailVerified) {
+        // Auto-verifikasi akun existing yang masih menunggu verifikasi email.
+        if (!existingByEmail.isVerified) {
+          await repository.updateVerifiedStatus(existingByEmail.id);
+          existingByEmail.isVerified = true;
+        }
+        // Link provider supaya login Google berikutnya langsung ketemu
+        // via findUserByProviderId tanpa kembali lewat findUserByEmail.
+        if (existingByEmail.provider !== 'google' || existingByEmail.providerId !== googleId) {
+          await repository.linkProvider(existingByEmail.id, 'google', googleId, {
+            fullName,
+            avatarUrl,
+          });
+        }
+        // Muat ulang baris terbaru setelah mutasi verifikasi/provider.
+        user = await repository.findUserById(existingByEmail.id);
+      }
     } else {
       const baseUsername = email
         .split('@')[0]
