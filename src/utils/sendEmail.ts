@@ -1,37 +1,30 @@
 /**
- * Pengiriman email transaksional via SMTP (nodemailer).
+ * Pengiriman email transaksional via Resend API (HTTPS).
  * Menyediakan transporter bersama dan fungsi untuk mengirim email
  * verifikasi akun serta reset password berisi tautan token.
+ * Resend dipakai menggantikan nodemailer/SMTP karena provider hosting
+ * memblokir koneksi SMTP keluar (ETIMEDOUT) sedangkan HTTPS selalu terbuka.
  */
 
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 import { env } from '../config/env.js';
 
-// Kredensial SMTP opsional: bila kosong, transporter tetap dibuat
-// (mode tanpa auth) namun pengiriman akan ditolak di level fungsi.
-const auth = env.smtpUser && env.smtpPass ? { user: env.smtpUser, pass: env.smtpPass } : undefined;
-
-/** Transporter SMTP bersama untuk semua email keluar. */
-const transporter = nodemailer.createTransport({
-  host: env.smtpHost,
-  port: env.smtpPort,
-  secure: false,
-  ...(auth ? { auth } : {}),
-});
+/** Klien Resend bersama untuk semua email keluar. */
+const resend = new Resend(env.resendApiKey);
 
 /**
  * Mengirim email verifikasi akun berisi tautan /verify-email?token=...
  * @param to Alamat email penerima.
  * @param token Token verifikasi yang akan disematkan di URL.
- * @throws Error bila SMTP belum dikonfigurasi atau pengiriman gagal.
+ * @throws Error bila RESEND_API_KEY belum dikonfigurasi atau pengiriman gagal.
  */
 export async function sendVerificationEmail(to: string, token: string) {
-  if (!env.smtpUser || !env.smtpPass) throw new Error('SMTP is not configured');
+  if (!env.resendApiKey) throw new Error('Resend is not configured');
 
   const verificationUrl = `${env.frontendUrl}/verify-email?token=${token}`;
 
-  await transporter.sendMail({
-    from: `"RealChat" <${env.smtpUser}>`,
+  const { error } = await resend.emails.send({
+    from: env.resendFrom,
     to,
     subject: 'Verify your RealChat account',
     html: `
@@ -41,21 +34,22 @@ export async function sendVerificationEmail(to: string, token: string) {
       <p>This link expires in 48 hours.</p>
     `,
   });
+  if (error) throw new Error(`Resend verification email failed: ${error.message}`);
 }
 
 /**
  * Mengirim email reset password berisi tautan /reset-password?token=...
  * @param to Alamat email penerima.
  * @param token Token reset yang akan disematkan di URL.
- * @throws Error bila SMTP belum dikonfigurasi atau pengiriman gagal.
+ * @throws Error bila RESEND_API_KEY belum dikonfigurasi atau pengiriman gagal.
  */
 export async function sendResetPasswordEmail(to: string, token: string) {
-  if (!env.smtpUser || !env.smtpPass) throw new Error('SMTP is not configured');
+  if (!env.resendApiKey) throw new Error('Resend is not configured');
 
   const resetUrl = `${env.frontendUrl}/reset-password?token=${token}`;
 
-  await transporter.sendMail({
-    from: `"RealChat" <${env.smtpUser}>`,
+  const { error } = await resend.emails.send({
+    from: env.resendFrom,
     to,
     subject: 'Reset your RealChat password',
     html: `
@@ -65,4 +59,5 @@ export async function sendResetPasswordEmail(to: string, token: string) {
       <p>This link expires in 1 hour.</p>
     `,
   });
+  if (error) throw new Error(`Resend reset password email failed: ${error.message}`);
 }

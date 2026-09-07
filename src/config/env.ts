@@ -38,8 +38,17 @@ const envSchema = z
     GOOGLE_CLIENT_SECRET: z.string().min(1),
     GOOGLE_REDIRECT_URI: z.string().url().default('http://localhost:3000/api/auth/google/callback'),
     NATIVE_APP_SCHEME: z.string().default('com.hallowok.app://auth/callback'),
+    RESEND_API_KEY: z.string().min(1),
+    RESEND_FROM: z.string().default('RealChat <onboarding@resend.dev>'),
   })
   .superRefine((data, ctx) => {
+    if (data.NODE_ENV === 'production' && !data.RESEND_API_KEY) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['RESEND_API_KEY'],
+        message: 'RESEND_API_KEY is required in production',
+      });
+    }
     if (data.NODE_ENV === 'production' && (!data.SMTP_USER || !data.SMTP_PASS)) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
@@ -95,4 +104,6 @@ export const env = {
   googleClientSecret: parsed.data.GOOGLE_CLIENT_SECRET,
   googleRedirectUri: parsed.data.GOOGLE_REDIRECT_URI,
   nativeAppScheme: parsed.data.NATIVE_APP_SCHEME,
+  resendApiKey: parsed.data.RESEND_API_KEY,
+  resendFrom: parsed.data.RESEND_FROM,
 };
