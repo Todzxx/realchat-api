@@ -12,11 +12,12 @@ const googleClient = new OAuth2Client(
 );
 
 /** Build Google OAuth consent screen URL. */
-export function getGoogleAuthUrl() {
+export function getGoogleAuthUrl(extra?: { state?: string }) {
   return googleClient.generateAuthUrl({
     access_type: 'offline',
     scope: ['openid', 'email', 'profile'],
     prompt: 'consent',
+    ...(extra?.state ? { state: extra.state } : {}),
   });
 }
 

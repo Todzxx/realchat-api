@@ -37,6 +37,7 @@ const envSchema = z
     GOOGLE_CLIENT_ID: z.string().min(1),
     GOOGLE_CLIENT_SECRET: z.string().min(1),
     GOOGLE_REDIRECT_URI: z.string().url().default('http://localhost:3000/api/auth/google/callback'),
+    NATIVE_APP_SCHEME: z.string().default('com.hallowok.app://auth/callback'),
   })
   .superRefine((data, ctx) => {
     if (data.NODE_ENV === 'production' && (!data.SMTP_USER || !data.SMTP_PASS)) {
@@ -93,4 +94,5 @@ export const env = {
   googleClientId: parsed.data.GOOGLE_CLIENT_ID,
   googleClientSecret: parsed.data.GOOGLE_CLIENT_SECRET,
   googleRedirectUri: parsed.data.GOOGLE_REDIRECT_URI,
+  nativeAppScheme: parsed.data.NATIVE_APP_SCHEME,
 };
