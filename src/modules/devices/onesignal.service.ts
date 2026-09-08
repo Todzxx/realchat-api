@@ -1,8 +1,10 @@
 /**
  * Layanan pengiriman push notification via OneSignal.
  * Mengirim pesan ke satu atau banyak external user id (user.id dari aplikasi),
- * sehingga semua perangkat milik user yang sama akan menerima notifikasi.
- * Menyediakan mode dry-run untuk lingkungan non-produksi (hanya log payload).
+ * sehingga semua perangkat milik user yang sama (web & Android) akan menerima
+ * notifikasi. Payload sengaja tanpa isAnyWeb agar tidak membatasi ke channel
+ * web saja — FCM Android ikut tertarget. Menyediakan mode dry-run untuk
+ * lingkungan non-produksi (hanya log payload).
  */
 import { env } from '../../config/env.js';
 import { isOneSignalConfigured, sendOneSignalNotification } from '../../config/onesignal.js';
@@ -60,7 +62,6 @@ export async function sendPush(externalUserIds: string[], payload: PushPayload) 
       app_id: env.oneSignalAppId,
       include_aliases: { external_id: externalUserIds },
       target_channel: 'push',
-      isAnyWeb: true,
       contents: { en: payload.body },
       headings: { en: payload.title },
       data: payload.data,
